@@ -29,7 +29,7 @@ body .container {
           backdrop-filter: blur(8px);
   border-radius: 20px;
   border: 2px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,6 +87,7 @@ body .container .todo-app .input-area input::placeholder {
 body .container .todo-app .input-area input:focus {
   background-color: rgba(141, 238, 255, 0.25);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  border-color: #1faa9a;
 }
 body .container .todo-app .input-area button {
   display: flex;
@@ -146,9 +147,9 @@ body .container .todo-app .todos-container li .checkbox {
   transition: 300ms ease;
 }
 body .container .todo-app .todos-container li .checkbox:checked {
-  background-color: #30c2b0;
+  background-color: #1faa9a;
   transform: scale(1.1);
-  border-color: #30c2b0;
+  border-color: #1faa9a;
 }
 body .container .todo-app .todos-container li .checkbox:checked::before {
   content: "✓";
@@ -190,10 +191,13 @@ body .container .todo-app .todos-container li .task-buttons .edit-btn {
   background-color: #ffb820;
 }
 body .container .todo-app .todos-container li .task-buttons .delete-btn {
-  background-color: #30c2b0;
+  background-color: #1faa9a;
 }
 body .container .todo-app .todos-container li.completed span {
-  -webkit-text-decoration: 2px line-through black;
-          text-decoration: 2px line-through black;
+  display: inline-block;
+  text-decoration-line: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: black;
+  -webkit-text-decoration-line: line-through;
   color: black;
 }/*# sourceMappingURL=style.css.map */

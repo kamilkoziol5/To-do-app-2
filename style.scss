@@ -1,10 +1,10 @@
-@import "variables";
+@import 'variables';
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 img.empty-image {
@@ -35,7 +35,8 @@ body {
 		backdrop-filter: blur(8px);
 		border-radius: 20px;
 		border: 2px solid $borderColor;
-		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 0, 0, 0.7),
+			0 0 20px rgba(0, 0, 0, 0.9);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -91,6 +92,7 @@ body {
 					&:focus {
 						background-color: rgba(141, 238, 255, 0.25);
 						box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+						border-color: $accentColor;
 					}
 				}
 
@@ -160,7 +162,7 @@ body {
 							border-color: $accentColor;
 
 							&::before {
-								content: "\2713";
+								content: '\2713';
 								color: $textDarkColor;
 								font-size: 1.1rem;
 								font-weight: 900;
@@ -211,7 +213,11 @@ body {
 					}
 
 					&.completed span {
-						text-decoration: 2px line-through black;
+						display: inline-block;
+						text-decoration-line: line-through;
+						text-decoration-thickness: 2px;
+						text-decoration-color: black;
+						-webkit-text-decoration-line: line-through;
 						color: black;
 					}
 				}

@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
-	const inputTask = document.getElementById("task-input");
-	const addButton = document.getElementById("add-task-btn");
-	const taskList = document.getElementById("task-list");
-	const emptyImage = document.querySelector(".empty-image");
-	const todosContainer = document.querySelector(".todos-containe");
+document.addEventListener('DOMContentLoaded', () => {
+	const inputTask = document.getElementById('task-input');
+	const addButton = document.getElementById('add-task-btn');
+	const taskList = document.getElementById('task-list');
+	const emptyImage = document.querySelector('.empty-image');
+	const todosContainer = document.querySelector('.todos-containe');
 
 	const addTask = (text, completed = false) => {
 		event.preventDefault();
@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (!taskText) {
 			return;
 		}
-		const li = document.createElement("li");
+		const li = document.createElement('li');
 
 		li.innerHTML = `
-        <input type="checkbox" class="checkbox" ${completed ? "checked" : ""}>
+        <input type="checkbox" class="checkbox" ${completed ? 'checked' : ''}>
         <span>${taskText}</span>
         <div class="task-buttons">
         <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
@@ -22,52 +22,52 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         `;
 
-		const checkbox = li.querySelector(".checkbox");
-		const editBtn = li.querySelector(".edit-btn");
+		const checkbox = li.querySelector('.checkbox');
+		const editBtn = li.querySelector('.edit-btn');
 
 		if (completed) {
-			li.classList.add("completed");
+			li.classList.add('completed');
 			editBtn.disabled = true;
-			editBtn.style.opacity = "0.5";
-			editBtn.style.pointerEvents = "none";
+			editBtn.style.opacity = '0.5';
+			editBtn.style.pointerEvents = 'none';
 		}
 
-		checkbox.addEventListener("change", () => {
+		checkbox.addEventListener('change', () => {
 			const isChecked = checkbox.checked;
-			li.classList.toggle("completed", isChecked);
+			li.classList.toggle('completed', isChecked);
 			editBtn.disabled = isChecked;
-			editBtn.style.opacity = isChecked ? "0.5" : "1";
-			editBtn.style.pointerEvents = isChecked ? " none" : "auto";
+			editBtn.style.opacity = isChecked ? '0.5' : '1';
+			editBtn.style.pointerEvents = isChecked ? ' none' : 'auto';
 		});
 
-		editBtn.addEventListener("click", () => {
+		editBtn.addEventListener('click', () => {
 			if (!checkbox.checked) {
-				inputTask.value = li.querySelector("span").textContent;
+				inputTask.value = li.querySelector('span').textContent;
 				li.remove();
 				toggleEmptyState();
 			}
 		});
 
-		li.querySelector(".delete-btn").addEventListener("click", () => {
+		li.querySelector('.delete-btn').addEventListener('click', () => {
 			li.remove();
 			toggleEmptyState();
 		});
 
 		taskList.appendChild(li);
-		inputTask.value = "";
+		inputTask.value = '';
 		toggleEmptyState();
 	};
 
-	addButton.addEventListener("click", () => addTask());
-	inputTask.addEventListener("keydown", e => {
-		if (e.key === "Enter") {
+	addButton.addEventListener('click', () => addTask());
+	inputTask.addEventListener('keydown', e => {
+		if (e.key === 'Enter') {
 			addTask();
 		}
 	});
 
 	const toggleEmptyState = () => {
 		emptyImage.style.display =
-			taskList.children.length === 0 ? "block" : "none";
-		todosContainer.style.width = taskList.children.length > 0 ? "100%" : "50%";
+			taskList.children.length === 0 ? 'block' : 'none';
+		todosContainer.style.width = taskList.children.length > 0 ? '100%' : '50%';
 	};
 });
